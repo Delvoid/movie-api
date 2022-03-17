@@ -34,3 +34,24 @@ button.active {
   background: rgb(65, 98, 168);
   color: white;
 } */
+
+.animated-bg-700 {
+  background-image: linear-gradient(
+    to right,
+    #475569 0%,
+    #334155 10%,
+    #334155 20%,
+    #475569 100%
+  );
+  background-size: 200% 100%;
+}
+.animated-bg-800 {
+  background-image: linear-gradient(
+    to right,
+    #334155 0%,
+    #1e293b 10%,
+    #1e293b 20%,
+    #334155 100%
+  );
+  background-size: 200% 100%;
+}
