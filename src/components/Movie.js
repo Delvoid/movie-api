@@ -1,97 +1,11 @@
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar'
+import MovieGenres from './MovieGenres'
+
 import 'react-circular-progressbar/dist/styles.css'
 
 const Movie = ({ movie }) => {
-  const genres = [
-    {
-      id: 28,
-      name: 'Action',
-    },
-    {
-      id: 12,
-      name: 'Adventure',
-    },
-    {
-      id: 16,
-      name: 'Animation',
-    },
-    {
-      id: 35,
-      name: 'Comedy',
-    },
-    {
-      id: 80,
-      name: 'Crime',
-    },
-    {
-      id: 99,
-      name: 'Documentary',
-    },
-    {
-      id: 18,
-      name: 'Drama',
-    },
-    {
-      id: 10751,
-      name: 'Family',
-    },
-    {
-      id: 14,
-      name: 'Fantasy',
-    },
-    {
-      id: 36,
-      name: 'History',
-    },
-    {
-      id: 27,
-      name: 'Horror',
-    },
-    {
-      id: 10402,
-      name: 'Music',
-    },
-    {
-      id: 9648,
-      name: 'Mystery',
-    },
-    {
-      id: 10749,
-      name: 'Romance',
-    },
-    {
-      id: 878,
-      name: 'Science Fiction',
-    },
-    {
-      id: 10770,
-      name: 'TV Movie',
-    },
-    {
-      id: 53,
-      name: 'Thriller',
-    },
-    {
-      id: 10752,
-      name: 'War',
-    },
-    {
-      id: 37,
-      name: 'Western',
-    },
-  ]
-
-  const getGenres = (genreIds) => {
-    return genreIds.map((id) => {
-      const genre = genres.filter((g) => g.id === id)
-      if (genre.length > 0) return genre[0].name
-      return ''
-    })
-  }
-  // getGenres(movie.genre_ids)
-  // console.log(getGenres(movie.genre_ids))
   return (
     <motion.div
       animate={{ opacity: 1 }}
@@ -146,9 +60,7 @@ const Movie = ({ movie }) => {
           {movie.title}
         </Link>
 
-        <div className="text-gray-400 mt-1">
-          {getGenres(movie.genre_ids).join(', ')}
-        </div>
+        <MovieGenres ids={movie.genre_ids} />
       </div>
 
       <Link to={`/${movie.id}`} className="">

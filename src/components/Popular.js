@@ -5,7 +5,7 @@ import Movie from './Movie'
 import Filter from './Filter'
 
 const Popular = () => {
-  const [popular, setPopular] = useState(0)
+  const [popular, setPopular] = useState([])
   const [filtered, setFiltered] = useState([])
   const [loading, setLoading] = useState(false)
   const [activeGenre, setActiveGenre] = useState(0)
