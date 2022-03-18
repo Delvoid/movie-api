@@ -104,7 +104,7 @@ const NowPlaying = () => {
                     </>
                   )}
                 </div>
-                <div className="ml-12">
+                <div className="ml-12 flex flex-col flex-1">
                   <Link
                     to={`/${movie.id}`}
                     className="block text-large font-semibold leading-tight
@@ -113,9 +113,12 @@ const NowPlaying = () => {
                     {movie.title}
                   </Link>
                   <MovieGenres ids={movie.genre_ids} />
-                  <p className="mt-6 text-gray-400 hidden lg:block">
+                  <p className="mt-6 text-gray-400 hidden lg:block flex-1">
                     {movie.overview}
                   </p>
+                  <div className="place-self-end">
+                    {new Date(movie.release_date).toDateString()}
+                  </div>
                 </div>
               </div>
             ))}
