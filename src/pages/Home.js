@@ -18,20 +18,6 @@ const Home = () => {
           </div>
         </section>
       </main>
-      {/* <div className="">
-        <Filter
-          popular={popular}
-          setFiltered={setFiltered}
-          activeGenre={activeGenre}
-          setActiveGenre={setActiveGenre}
-        />
-        <motion.div layout className="popular-movies">
-          <AnimatePresence>
-            {filtered &&
-              filtered.map((movie) => <Movie key={movie.id} movie={movie} />)}
-          </AnimatePresence>
-        </motion.div>
-      </div> */}
     </>
   )
 }
