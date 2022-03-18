@@ -10,7 +10,7 @@ const TopRated = () => {
     setLoading(true)
 
     const data = await fetch(
-      `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB}&language=en-G&page=1`
+      `https://api.themoviedb.org/3/movie/top_rated?api_key=${process.env.REACT_APP_TMDB}&language=en-GB&page=1`
     )
     const movies = await data.json()
     setTopRated(movies.results.slice(0, 10))

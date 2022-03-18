@@ -12,7 +12,7 @@ const NowPlaying = () => {
     setLoading(true)
 
     const data = await fetch(
-      `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB}&language=en-G&page=1`
+      `https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_TMDB}&language=en-GB&page=1`
     )
     const movies = await data.json()
     setNowPlaying(movies.results)
