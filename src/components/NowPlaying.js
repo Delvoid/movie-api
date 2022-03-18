@@ -8,7 +8,7 @@ const NowPlaying = () => {
   const [loading, setLoading] = useState(false)
   const skeleton = [1, 2, 3]
 
-  const fetchPopular = async () => {
+  const fetchNowPlaying = async () => {
     setLoading(true)
 
     const data = await fetch(
@@ -20,14 +20,16 @@ const NowPlaying = () => {
   }
 
   useEffect(() => {
-    fetchPopular()
+    fetchNowPlaying()
   }, [])
   return (
     <div
       className="recently-reviewed w-full lg:w-3/4 mr-0 lg:mr-32"
       id="now-playing"
     >
-      <h2 className="text-blue-500 tracking-wide font-semibold">Now Playing</h2>
+      <h2 className="text-blue-500 tracking-wide font-semibold text-lg">
+        Now Playing
+      </h2>
       <div className="recently-reviewed-container space-y-12 mt-8">
         {loading
           ? skeleton.map((_, index) => (

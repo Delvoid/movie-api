@@ -1,8 +1,8 @@
-import Search from './Search';
+import Search from './Search'
 
 const Navbar = () => {
   return (
-    <header className="border-b border-gray-800">
+    <header className="border-b border-gray-800 sticky top-0 z-10 backdrop-blur-md">
       <nav className="container mx-auto flex flex-col lg:flex-row items-center justify-between px-4 py-6">
         <div className="flex flex-col lg:flex-row items-center">
           <a href="/">
@@ -28,6 +28,11 @@ const Navbar = () => {
                 Coming Soon
               </a>
             </li>
+            <li>
+              <a href="#top-rated" className="hover:text-gray-400">
+                Top Rated
+              </a>
+            </li>
           </ul>
         </div>
         <div className="flex items-center mt-6 lg:mt-0">
@@ -35,6 +40,6 @@ const Navbar = () => {
         </div>
       </nav>
     </header>
-  );
-};
-export default Navbar;
+  )
+}
+export default Navbar

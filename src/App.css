@@ -1,12 +1,7 @@
-/* 
-img {
-  width: 100%;
-  height: 30vh;
-  object-fit: cover;
-  border-radius: 1rem;
-  margin-bottom: 1rem;
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
 }
-*/
 
 .animated-bg-700 {
   background-image: linear-gradient(
