@@ -9,13 +9,13 @@ const Navbar = () => {
     <header className="border-b border-gray-800 sticky top-0 z-10 backdrop-blur-md">
       <nav className="container mx-auto flex flex-col lg:flex-row items-center justify-between px-4 py-6">
         <div className="flex flex-col lg:flex-row items-center">
-          <a href="/">
+          <Link to={'/'}>
             <img
               src="/images/delvoid.svg"
               alt="delvoid-logo"
               className="w-32 flex-none"
             />
-          </a>
+          </Link>
           <ul className="flex ml-0 lg:ml-16 space-x-8 mt-6 lg:mt-0">
             {location.pathname === '/' ? (
               <>
