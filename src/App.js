@@ -17,7 +17,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />} />
-          <Route exact path="/:movieId" element={<Movie />} />
+          <Route path="/:movieId" element={<Movie />} key={Date.now()} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Router>

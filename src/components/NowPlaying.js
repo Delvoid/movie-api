@@ -93,7 +93,7 @@ const NowPlaying = () => {
                             textColor: 'white',
                             trailColor: '#374151',
                             pathColor:
-                              movie.vote_average >= 8
+                              movie.vote_average >= 7.5
                                 ? 'green'
                                 : movie.vote_average >= 5
                                 ? 'orange'

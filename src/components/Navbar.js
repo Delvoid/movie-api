@@ -1,6 +1,7 @@
 import Search from './Search'
 import { useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
+import logoipsum from '../images/logoipsum.svg'
 
 const Navbar = () => {
   const location = useLocation()
@@ -11,7 +12,7 @@ const Navbar = () => {
         <div className="flex flex-col lg:flex-row items-center">
           <Link to={'/'}>
             <img
-              src="/images/delvoid.svg"
+              src={logoipsum}
               alt="delvoid-logo"
               className="w-32 flex-none"
             />

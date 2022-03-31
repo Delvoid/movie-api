@@ -1,4 +1,4 @@
-const MovieGenres = ({ ids }) => {
+const MovieGenres = ({ ids, textColor = 'text-gray-400' }) => {
   const genres = [
     {
       id: 28,
@@ -86,6 +86,6 @@ const MovieGenres = ({ ids }) => {
       return []
     })
   }
-  return <div className="text-gray-400 mt-1">{getGenres().join(', ')}</div>
+  return <div className={textColor}>{getGenres().join(', ')}</div>
 }
 export default MovieGenres

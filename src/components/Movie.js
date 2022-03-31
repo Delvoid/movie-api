@@ -32,15 +32,15 @@ const Movie = ({ movie }) => {
             >
               <CircularProgressbar
                 className=" font-bold"
-                value={movie.vote_average * 10}
-                text={`${movie.vote_average * 10}%`}
+                value={Math.round(movie.vote_average * 10)}
+                text={`${Math.round(movie.vote_average * 10)}%`}
                 styles={buildStyles({
                   pathTransitionDuration: 2,
 
                   textColor: 'white',
                   trailColor: '#374151',
                   pathColor:
-                    movie.vote_average >= 8
+                    movie.vote_average >= 7.5
                       ? 'green'
                       : movie.vote_average >= 5
                       ? 'orange'

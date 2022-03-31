@@ -7,6 +7,7 @@ const Search = () => {
   const [loading, setLoading] = useState(false)
   const [hidden, setHidden] = useState(true)
   const inputElement = useRef(null)
+  const searchRef = useRef()
 
   const fetchSearch = async () => {
     setLoading(true)
@@ -25,9 +26,26 @@ const Search = () => {
       setResults([])
       return
     }
+    const checkIfClickedOutside = (e) => {
+      // If the menu is open and the clicked target is not within the menu,
+      // then close the menu
+      if (
+        !hidden &&
+        searchRef.current &&
+        !searchRef.current.contains(e.target)
+      ) {
+        setSearch('')
+        setHidden(true)
+      }
+    }
+
     setHidden(false)
+    document.addEventListener('mousedown', checkIfClickedOutside)
     const timeoutId = setTimeout(() => fetchSearch(), 500)
-    return () => clearTimeout(timeoutId)
+    return () => {
+      clearTimeout(timeoutId)
+      document.removeEventListener('mousedown', checkIfClickedOutside)
+    }
   }, [search])
 
   // useEffect(() => {
@@ -52,13 +70,13 @@ const Search = () => {
   }
 
   return (
-    <div className="relative" x-data="{ isVisible : true }">
+    <div className="relative" ref={searchRef}>
       <input
-        ref={inputElement}
         type="text"
-        className="bg-gray-800 text-sm rounded-full focus:outline-none focus:shadow-outline w-64 px-3 pl-8 py-1"
+        className="bg-gray-800 text-sm rounded-full focus:outline-none focus:shadow-outline w-64 px-3 pl-8 py-2"
         placeholder="Search"
         value={search}
+        ref={inputElement}
         onChange={(e) => handleChange(e)}
       />
       <div className="absolute top-0 flex items-center h-full ml-2">
