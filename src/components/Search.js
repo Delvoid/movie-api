@@ -73,7 +73,7 @@ const Search = () => {
     <div className="relative" ref={searchRef}>
       <input
         type="text"
-        className="bg-gray-800 text-sm rounded-full focus:outline-none focus:shadow-outline w-64 px-3 pl-8 py-2"
+        className="bg-gray-800 text-sm rounded-full focus:outline-none focus:shadow-outline  md:w-32 lg:w-64 px-3 pl-8 py-2"
         placeholder="Search"
         value={search}
         ref={inputElement}
@@ -110,7 +110,7 @@ const Search = () => {
       )}
 
       {!hidden && (
-        <div className="fixed z-50 bg-gray-800 text-sm rounded w-64 mt-2 ">
+        <div className="fixed z-50 bg-gray-800 text-sm rounded  md:w-48  lg:w-64 mt-2 ">
           {results.length > 0 ? (
             results.map((movie, index) => (
               <ul key={index} className="">

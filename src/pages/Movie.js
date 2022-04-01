@@ -67,29 +67,27 @@ const Movie = () => {
         }}
       >
         <div
-          className="movie-details border-b border-gray-800 flex flex-col lg:flex-row "
+          className="movie-details border-b border-gray-800 flex flex-col md:flex-row px-4 md:px-0"
           style={{ backgroundColor: 'rgba(0, 0, 0, 0.6)' }}
         >
-          <div className="flex-none">
+          <div className="lg:flex-none  hidden md:flex">
             <img
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt="movie cover"
               className="transition ease-in-out duration-150  "
             />
           </div>
-          <div className="lg:px-8">
-            <h2 className="font-semitbold text-5xl leading-tight mt-1 lg:mb-4">
+          <div className="md:px-8">
+            <h2 className="font-semitbold text-5xl leading-tight mt-1 md:mb-4">
               {movie.title}
             </h2>
-            <div className="flex items-center text-gray-200">
+            <div className="flex items-center text-gray-200 text-sm lg:text-base">
               <MovieCert id={movie.id} />
               <MovieGenres ids={genres} textColor="text-gray-200" />
               <span className="px-2">&bull;</span>
               <span>{new Date(movie.release_date).toDateString()}</span>
               <span className="px-2">&bull;</span>
               <span>{toHoursAndMinutes(movie.runtime)}</span>
-              <span className="px-2">&bull;</span>
-              <span>platforms</span>
             </div>
             <div className="flex flex-wrap items-center mt-12">
               <div className="flex items-center">
@@ -119,12 +117,12 @@ const Movie = () => {
                     </div>
                   </>
                 )}
-                <div className="ml-4 text-xs">
+                <div className="mx-4 text-xs">
                   User <br /> Score
                 </div>
               </div>
 
-              <div className="flex items-center space-x-4 mt-4 lg:mt-0 lg:ml-12">
+              <div className="flex items-center space-x-4  md:ml-12">
                 <div className="w-10 h-10 bg-gray-800 rounded-full flex justify-center items-center">
                   <a
                     href={movie.homepage}
@@ -214,7 +212,7 @@ const Movie = () => {
           </div>
         </div>
       </section>
-      <section className="container mx-auto pc-4">
+      <section className="container mx-auto px-4 md:px-0">
         <Recommendations id={movie.id} />
       </section>
     </>
