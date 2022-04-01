@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 const MovieCert = ({ id }) => {
   const [cert, setCert] = useState([])
   const [loading, setLoading] = useState(false)
 
-  const fetchMovieCert = async () => {
+  const fetchMovieCert = useCallback(async () => {
     setLoading(true)
 
     const data = await fetch(
@@ -16,11 +16,11 @@ const MovieCert = ({ id }) => {
 
     setCert(GB?.release_dates[0].certification)
     setLoading(false)
-  }
+  }, [id])
 
   useEffect(() => {
     fetchMovieCert()
-  }, [])
+  }, [fetchMovieCert])
 
   if (loading) {
     return 'Loading...'

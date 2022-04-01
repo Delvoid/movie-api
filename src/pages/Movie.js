@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { useParams } from 'react-router-dom'
@@ -16,7 +16,7 @@ const Movie = () => {
   const navigate = useNavigate()
   const { movieId } = useParams()
 
-  const fetchMovie = async () => {
+  const fetchMovie = useCallback(async () => {
     const data = await fetch(
       `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.REACT_APP_TMDB}&language=en-GB`
     )
@@ -37,7 +37,7 @@ const Movie = () => {
     const socials = await res.json()
     setSocials(socials)
     setLoading(false)
-  }
+  }, [movieId, navigate])
 
   const toHoursAndMinutes = (totalMinutes) => {
     const minutes = totalMinutes % 60
@@ -52,7 +52,7 @@ const Movie = () => {
   useEffect(() => {
     window.scrollTo(0, 0)
     fetchMovie()
-  }, [movieId])
+  }, [fetchMovie])
 
   if (loading) {
     return 'loading'

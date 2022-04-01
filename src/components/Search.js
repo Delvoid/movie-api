@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 
 const Search = () => {
@@ -9,7 +9,7 @@ const Search = () => {
   const inputElement = useRef(null)
   const searchRef = useRef()
 
-  const fetchSearch = async () => {
+  const fetchSearch = useCallback(async () => {
     setLoading(true)
 
     const data = await fetch(
@@ -18,7 +18,7 @@ const Search = () => {
     const movies = await data.json()
     setResults(movies.results.slice(0, 10))
     setLoading(false)
-  }
+  }, [search])
 
   useEffect(() => {
     if (search.length <= 2) {
@@ -46,7 +46,7 @@ const Search = () => {
       clearTimeout(timeoutId)
       document.removeEventListener('mousedown', checkIfClickedOutside)
     }
-  }, [search])
+  }, [fetchSearch, search, hidden])
 
   // useEffect(() => {
   //   document.addEventListener('keydown', onKeyDown)

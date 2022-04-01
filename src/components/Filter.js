@@ -11,7 +11,7 @@ const Filter = ({ setActiveGenre, activeGenre, setFiltered, popular }) => {
       movie.genre_ids.includes(activeGenre)
     )
     setFiltered(filtered)
-  }, [activeGenre])
+  }, [activeGenre, setFiltered, popular])
   return (
     <div className="filter-container mt-2 ">
       <button

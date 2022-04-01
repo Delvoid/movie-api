@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 
 const MovieTrailer = ({ id }) => {
   const ref = useRef()
@@ -21,7 +21,7 @@ const MovieTrailer = ({ id }) => {
     }
   }, [showTrailer])
 
-  const fetchTrailer = async () => {
+  const fetchTrailer = useCallback(async () => {
     setLoading(true)
 
     const data = await fetch(
@@ -33,11 +33,11 @@ const MovieTrailer = ({ id }) => {
     )[0]
     setTrailer(trailer)
     setLoading(false)
-  }
+  }, [id])
 
   useEffect(() => {
     fetchTrailer()
-  }, [])
+  }, [fetchTrailer])
 
   if (loading) {
     return 'Loading...'

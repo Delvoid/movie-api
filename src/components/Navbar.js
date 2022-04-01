@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 import logoipsum from '../images/logoipsum.svg'
 import { HiMenuAlt4, HiX } from 'react-icons/hi'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const Navbar = () => {
   const location = useLocation()
