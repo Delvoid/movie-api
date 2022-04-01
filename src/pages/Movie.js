@@ -50,7 +50,7 @@ const Movie = () => {
   }
 
   useEffect(() => {
-    window.scrollTo(0, 0)
+    // window.scrollTo(0, 0)
     fetchMovie()
   }, [fetchMovie])
 
